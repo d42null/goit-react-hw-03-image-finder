@@ -40,6 +40,7 @@ export class Searchbar extends Component {
             placeholder="Search images and photos"
             onChange={this.onChange}
             value={this.state.query}
+            name="search"
           />
         </SearchForm>
       </Header>
