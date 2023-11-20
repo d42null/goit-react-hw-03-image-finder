@@ -16,7 +16,7 @@ export class ImageGallery extends Component {
   };
   async componentDidUpdate(prevProps, prevState) {
     if (prevProps.searchQ !== this.props.searchQ) {
-      this.setState({ loading: true, hits: [], totalHits: 0 ,error:null});
+      this.setState({ loading: true, hits: [], totalHits: 0, error: null });
       try {
         const data = await getImagesBySearchQuery(this.props.searchQ);
 
@@ -68,7 +68,7 @@ export class ImageGallery extends Component {
         </Gallery>
         {error && <ErrorMsg>{error.message}</ErrorMsg>}
         <Loader visible={loading} />
-        {totalHits > 0 && page * PER_PAGE < totalHits && (
+        {totalHits > 0 && page * PER_PAGE < totalHits && !loading && (
           <Button onLoadMore={this.onLoadMore}></Button>
         )}
       </>

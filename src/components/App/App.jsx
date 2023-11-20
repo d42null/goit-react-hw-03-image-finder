@@ -14,7 +14,9 @@ export class App extends Component {
       <>
         <Container>
           <Searchbar onSubmit={this.onSearchSubmit} />
-          <ImageGallery searchQ={this.state.searchQ}></ImageGallery>
+          {this.state.searchQ && (
+            <ImageGallery searchQ={this.state.searchQ}></ImageGallery>
+          )}
         </Container>
       </>
     );
